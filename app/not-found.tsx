@@ -1,12 +1,7 @@
 'use client';
 import Button from '@/components/Button/Button.tsx';
 import { useRouter } from 'next/navigation';
-import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Page Not Found | NexOps',
-  description: 'The page you are looking for does not exist in the NexOps Enterprise Cloud Observability Platform.'
-};
 
 export default function NotFoundPage() {
   const router = useRouter();

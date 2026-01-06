@@ -2,7 +2,17 @@
 import React, { useEffect, useState } from 'react'
 import { MenuIcon, XIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts';
+import dynamic from 'next/dynamic';
+
+const LineChartComponent = dynamic(() => import('@/components/charts/LineChartComponent').then(mod => mod.LineChartComponent), {
+  ssr: false,
+  loading: () => <p>Loading Line Chart...</p>,
+});
+
+const BarChartComponent = dynamic(() => import('@/components/charts/BarChartComponent').then(mod => mod.BarChartComponent), {
+  ssr: false,
+  loading: () => <p>Loading Bar Chart...</p>,
+});
 
 import { AnalyticsData } from '@/types/analytics';
 
@@ -41,7 +51,7 @@ export default function DashboardPage() {
         }
         const result: AnalyticsData = await response.json();
         setData(result);
-      } catch (e: any) {
+      } catch (e: unknown) {
         setError(e.message);
       } finally {
         setLoading(false);
@@ -139,27 +149,13 @@ export default function DashboardPage() {
           <div className="bg-white p-4 rounded-lg shadow-sm">
             <h2 className="text-lg font-bold mb-4">API Requests over last 24h</h2>
             <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={apiRequestsData || []}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="uv" stroke="#8884d8" activeDot={{ r: 8 }} />
-              </LineChart>
+              <LineChartComponent data={apiRequestsData || []} />
             </ResponsiveContainer>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-sm">
               <h2 className="text-lg font-bold mb-4">Server Load</h2>
               <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={serverLoadData || []}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  <Bar dataKey="uv" fill="#82ca9d" />
-                </BarChart>
+                <BarChartComponent data={serverLoadData || []} />
               </ResponsiveContainer>
             </div>
         </div>
