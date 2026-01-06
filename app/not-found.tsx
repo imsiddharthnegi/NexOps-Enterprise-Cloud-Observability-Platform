@@ -1,19 +1,17 @@
-"use client"
-import { Button } from "@/components/ui/button"
-import { useRouter } from "next/navigation"
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
-export default function NotFoundPage() {
-  const router = useRouter()
-
+export default function NotFound() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-4 text-center">
-      <h1 className="mb-4 text-4xl font-bold">Page not found</h1>
-      <p className="mb-8 max-w-md text-lg">
-        We couldn't find the page you're looking for. It may have been moved or deleted.
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background text-foreground">
+      <h1 className="text-4xl font-bold">404</h1>
+      <h2 className="mb-4 text-xl">Page Not Found</h2>
+      <p className="mb-8 text-muted-foreground">
+        Could not find requested resource
       </p>
-      <Button onClick={() => router.push("/dashboard")} className="px-6 py-2">
-        Go Back to Dashboard
-      </Button>
+      <Link href="/dashboard">
+        <Button variant="default">Return to Dashboard</Button>
+      </Link>
     </div>
   )
 }
