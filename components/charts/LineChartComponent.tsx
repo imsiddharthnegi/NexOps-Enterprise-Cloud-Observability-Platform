@@ -14,3 +14,4 @@ export default function LineChartComponent({ data }: { data: any[] }) {
     </ResponsiveContainer>
   );
 }
+// Force git update

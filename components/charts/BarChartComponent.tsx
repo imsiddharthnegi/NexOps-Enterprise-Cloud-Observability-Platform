@@ -14,3 +14,4 @@ export default function BarChartComponent({ data }: { data: any[] }) {
     </ResponsiveContainer>
   );
 }
+// Force git update
