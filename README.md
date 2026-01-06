@@ -6,9 +6,6 @@ High-Performance Rendering: Utilizing Next.js Server Components.
 Strict Type Safety: Comprehensive TypeScript interfaces for all data layers.
 Data Visualization: Interactive line and bar charts using Recharts.
 Responsive Design: A mobile-first approach using Tailwind CSS.
-📸 Screenshots
-Dashboard View
-Mobile View
 🛠️ Tech Stack
 Framework: Next.js 14 (App Router)
 Styling: Tailwind CSS
@@ -18,7 +15,7 @@ Deployment: Vercel
 Clone the repo:
 
 ```bash
-git clone `https://github.com/imsiddharthnegi/NexOps-Platform.git`
+git clone https://github.com/imsiddharthnegi/NexOps---Enterprise-Cloud-Observability-Platform.git
 ```
 
 Install dependencies:
