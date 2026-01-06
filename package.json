@@ -1,7 +1,9 @@
 {
-  "name": "next-enterprise",
+  "name": "nexops-dashboard",
   "version": "0.0.0",
   "private": true,
+  "author": "Siddharth Negi",
+  "description": "An enterprise-grade SaaS dashboard built with Next.js 14, TypeScript, and Tailwind CSS.",
   "scripts": {
     "dev": "cross-env FORCE_COLOR=1 next dev --turbo",
     "build": "next build",
